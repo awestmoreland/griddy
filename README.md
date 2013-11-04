@@ -52,3 +52,23 @@ Example Usage
 
 }
 ```
+
+Example Markup
+======
+
+```html
+<ul class="columns four-wide">
+  <li>Content</li>
+  <li>Content</li>
+  <li>Content</li>
+  <li>Content</li>
+  <li>Content</li>
+  <li>Content</li>
+  <li>Content</li>
+  <li>Content</li>
+  <li>Content</li>
+  <li>Content</li>
+  <li>Content</li>
+  <li>Content</li>
+</ul>
+````
