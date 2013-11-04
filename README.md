@@ -32,12 +32,16 @@ Example Usage
 
 ```scss
 .columns {
+
   @include clearfix;
+  @include griddy(1);
+  @include media($led) {
+    @include griddy(2);
+  }
 
   &.six-wide {
-    @include griddy(2);
-    @include media($flashlight) {
-      @include griddy(4);
+    @include media($desklamp) {
+      @include griddy(3);
     }
     @include media($chandelier) {
       @include griddy(6);
@@ -45,13 +49,12 @@ Example Usage
   }
 
   &.four-wide {
-    @include griddy(1);
-    @include media($flashlight) {
-      @include griddy(2);
-    }
-    @include media($chandelier) {
+    @include media($desklamp) {
       @include griddy(4);
     }
+  }
+  img {
+    width: 100%;
   }
 
 }
