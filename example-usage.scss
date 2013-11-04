@@ -1,11 +1,21 @@
-griddy
-======
+// Settings
+$grid-columns: 12;
 
-Mixin for Bourbon + Neat to reset margins and omega when changing media queries.
+$root-font-size-int: 20; // unsigned px
+$root-font-size: $root-font-size-int * 1px;
+
+// Change the grid settings
+$column: 80px;
+$gutter: 20px;
+$grid-columns: 12;
+$max-width: em(1180,$root-font-size-int);
+
+// Set breakpoints
+$flashlight: new-breakpoint(min-width 480px $grid-columns);
+$chandelier: new-breakpoint(min-width 768px $grid-columns);
 
 
-Mixin
-======
+// Mixin
 @mixin griddy($cols) {
   > * {
     @if($cols > 1) {
@@ -21,8 +31,7 @@ Mixin
 }
 
 
-Example Usage
-======
+// Use mixin
 .columns {
   @include clearfix;
 
@@ -46,4 +55,13 @@ Example Usage
     }
   }
 
+}
+
+// For prettiness
+figure {
+  text-align: center;
+  margin-bottom: 1rem;
+  img {
+    width: 100%;
+  }
 }
