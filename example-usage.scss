@@ -11,8 +11,12 @@ $grid-columns: 12;
 $max-width: em(1180,$root-font-size-int);
 
 // Set breakpoints
+$led: new-breakpoint(min-width 300px $grid-columns);
 $flashlight: new-breakpoint(min-width 480px $grid-columns);
+$desklamp: new-breakpoint(min-width 600px $grid-columns);
 $chandelier: new-breakpoint(min-width 768px $grid-columns);
+// $lighthouse
+// $sun
 
 
 // Mixin
