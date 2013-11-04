@@ -17,16 +17,20 @@ $chandelier: new-breakpoint(min-width 768px $grid-columns);
 
 // Mixin
 @mixin griddy($cols) {
-  > * {
-    @if($cols > 1) {
-      margin-right: flex-gutter();
-      clear: none;
+  @if($cols > 1) {
+    > *{
+      @for $i from 1 through $cols {
+        &:nth-child(#{$i}n) {
+          margin-right: flex-gutter();
+          clear: none;
+        }
+      }
       @include span-columns($grid-columns / $cols);
       @include omega($cols*1n);
     }
-    else {
-      @include fill-parent();
-    }
+  }
+  @else {
+    @include fill-parent();
   }
 }
 
