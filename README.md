@@ -6,6 +6,7 @@ Mixin for Bourbon + Neat to reset margins and omega when changing media queries.
 
 Mixin
 ======
+
 @mixin griddy($cols) {
   > * {
     @if($cols > 1) {
@@ -23,6 +24,7 @@ Mixin
 
 Example Usage
 ======
+
 .columns {
   @include clearfix;
 
