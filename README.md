@@ -9,8 +9,8 @@ Mixin
 
 ```scss
 @mixin griddy($cols) {
-  @if($cols > 1) {
-    > *{
+  > *{
+    @if($cols > 1) {
       @for $i from 1 through $cols {
         &:nth-child(#{$i}n) {
           margin-right: flex-gutter();
@@ -20,9 +20,9 @@ Mixin
       @include span-columns($grid-columns / $cols);
       @include omega($cols*1n);
     }
-  }
-  @else {
-    @include fill-parent();
+    @else {
+      @include fill-parent();
+    }
   }
 }
 ```
