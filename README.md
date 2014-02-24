@@ -7,10 +7,8 @@ Compass version tested and working. Based on what I learned writing the Compass 
 
 Problem
 ======
-Largest media query has four columns, next three, next two, etc. Styles applied to nth-child(4n) at large media query need removing when styles apply to nth-child(3n) or nth-child(2n).
+Largest media query has four columns, medium: three, small: two, etc. Styles applied to nth-child(4n) at large media query need removing when styles apply to nth-child(3n) or nth-child(2n).
 
 Solution
 ======
-Other solutions require that you specify which child to remove the styles from. This requires you to remember that a change to one media query may need additional changes in another. This method simply resets values for nth-child('all less than current'). Slightly more verbose, but simpler to manage.
-
-
+Other solutions require that you specify the child to remove styles from. This requires you to remember that a change to one media query may need additional changes in another. This (Griddy) method simply resets values for nth-child('all less than current'). The rendered CSS is slightly more verbose, but simpler to manage.
