@@ -9,11 +9,11 @@
         }
       }
       &:nth-child(#{$cols}n + #{$cols}) {
-        // float last cell in a row to the right and set margins appropriately
+        // float last cell in a row to the right and remove right margin
         @include omega;
       }
-      &:nth-child(#{$cols+1}n + #{$cols+1}) {
-        // Make sure first cell in each row goes all the way to the left
+      &:nth-child(#{$cols}n + 1) {
+        // Ensure first cell in each row goes all the way to the left
         clear: both;
       }
     }
