@@ -1,83 +1,16 @@
 griddy
 ======
 
-SASS mixin to reset margins and omega when changing media queries.
-Available for Bourbon + Neat & Compass + Susy
+SASS mixin to reset margins and floats when changing media queries. Available for Bourbon + Neat & Compass + Susy.
 
-Compass version tested and working. Based on what I learned via the Compass version, I suspect there are some issues which need addressing for the Bourbon version.
+Compass version tested and working. Based on what I learned writing the Compass version, I suspect there are some issues which need addressing for the Bourbon version. Will back fix on my next Bourbon-based project (or feel free to submit pull request).
 
-Mixin
+Problem
 ======
+Largest media query has four columns, next three, next two, etc. Styles applied to nth-child(4n) at large media query need removing when styles apply to nth-child(3n) or nth-child(2n).
 
-```scss
-@mixin griddy($cols) {
-  > *{
-    @if($cols > 1) {
-      @for $i from 1 through $cols {
-        &:nth-child(#{$i}n) {
-          margin-right: flex-gutter();
-          clear: none;
-        }
-      }
-      @include span-columns($grid-columns / $cols);
-      @include omega($cols*1n);
-    }
-    @else {
-      @include fill-parent();
-    }
-  }
-}
-```
-
-Example Usage
+Solution
 ======
+Other solutions require that you specify which child to remove the styles from. This requires you to remember that a change to one media query may need additional changes in another. This method simply resets values for nth-child('all less than current'). Slightly more verbose, but simpler to manage.
 
-```scss
-.columns {
 
-  @include clearfix;
-  @include griddy(1);
-  @include media($led) {
-    @include griddy(2);
-  }
-
-  &.six-wide {
-    @include media($desklamp) {
-      @include griddy(3);
-    }
-    @include media($chandelier) {
-      @include griddy(6);
-    }
-  }
-
-  &.four-wide {
-    @include media($desklamp) {
-      @include griddy(4);
-    }
-  }
-  img {
-    width: 100%;
-  }
-
-}
-```
-
-Example Markup
-======
-
-```html
-<ul class="columns four-wide">
-  <li>Content</li>
-  <li>Content</li>
-  <li>Content</li>
-  <li>Content</li>
-  <li>Content</li>
-  <li>Content</li>
-  <li>Content</li>
-  <li>Content</li>
-  <li>Content</li>
-  <li>Content</li>
-  <li>Content</li>
-  <li>Content</li>
-</ul>
-````

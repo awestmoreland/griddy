@@ -1,10 +1,11 @@
+// Compass version
 @mixin griddy($cols) {
   > *{
     @if($cols > 1) {
       @for $i from 1 through $cols {
         &:nth-child(#{$i}n+#{$i}) {
           // reset from previous media queries by specifying each column via nth (required for specificity override)
-          @include span-columns($total-columns / $cols);
+          @include span-columns($grid-columns / $cols);
           clear: none;
         }
       }
