@@ -1,8 +1,10 @@
 griddy
 ======
 
-Mixin for Bourbon + Neat to reset margins and omega when changing media queries.
+SASS mixin to reset margins and omega when changing media queries.
+Available for Bourbon + Neat & Compass + Susy
 
+Compass version tested and working. Based on what I learned via the Compass version, I suspect there are some issues which need addressing for the Bourbon version.
 
 Mixin
 ======

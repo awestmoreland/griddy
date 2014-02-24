@@ -1,0 +1,29 @@
+@mixin griddy($cols) {
+  > *{
+    @if($cols > 1) {
+      @for $i from 1 through $cols {
+        &:nth-child(#{$i}n+#{$i}) {
+          // reset from previous media queries by specifying each column via nth (required for specificity override)
+          @include span-columns($total-columns / $cols);
+          clear: none;
+        }
+      }
+      &:nth-child(#{$cols}n + #{$cols}) {
+        // float last cell in a row to the right and set margins appropriately
+        @include omega;
+      }
+      &:nth-child(#{$cols+1}n + #{$cols+1}) {
+        // Make sure first cell in each row goes all the way to the left
+        clear: both;
+      }
+    }
+    @else {
+      @for $i from 1 through $cols {
+        &:nth-child(#{$i}n+#{$i}) {
+          // make all cells full-width
+          @include span-columns($total-columns);
+        }
+      }
+    }
+  }
+}
